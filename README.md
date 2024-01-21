@@ -28,3 +28,14 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "DotNet8WebAPI.dll"]
 ```
+
+#### Instead, go to the parent directory, with the .sln file and use the docker -f option to specify the Dockerfile to use in the subfolder:
+#### Create image
+```
+docker build -t counter-image -f DotNet8WebAPI/Dockerfile .
+```
+#### It worked for me.
+#### Create container
+```
+docker run -p 8080:80 --name your-container-name your-image-name
+```
