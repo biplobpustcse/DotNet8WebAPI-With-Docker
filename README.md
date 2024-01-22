@@ -39,3 +39,7 @@ docker build -t counter-image -f DotNet8WebAPI/Dockerfile .
 ```
 docker run -p 4201:8080 --name your-container-name your-image-name
 ```
+#### You can run only using Visual stdio terminal
+```
+docker run -it --rm -p 8080:80 --name weatherapi-container weatherapi-image:latest
+```
